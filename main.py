@@ -28,13 +28,13 @@ def home():
     return "<h1>this is home!</h1>"
 
 
-# GET METHOD
+
 @myPython.route("/json")
 def get_all_info():
     return make_response(jsonify(INFO), 200)
 
 
-# POST Method
+
 @myPython.route("/json/<collection>", methods=["POST"])
 def add_collection(collection):
     body = request.get_json()
@@ -47,7 +47,7 @@ def add_collection(collection):
     return make_response(jsonify({"success": "collection created"}), 200)
 
 
-# POST Method
+
 @myPython.route("/json/<collection>/<member>", methods=["POST"])
 def add_member(collection, member):
     body = request.get_json()
@@ -59,7 +59,7 @@ def add_member(collection, member):
     return make_response(jsonify({"success": "collection created"}), 200)
 
 
-# PUT method
+
 @myPython.route("/json/<collection>/<member>", methods=["PUT"])
 def update_info(collection, member):
     body = request.get_json()
@@ -70,7 +70,7 @@ def update_info(collection, member):
     return make_response(jsonify({"error": "not found"}), 404)
 
 
-# DELETE method
+
 @myPython.route("/json/<collection>/<member>", methods=["DELETE"])
 def delete_member(collection, member):
     if member in INFO[collection]:
